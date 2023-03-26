@@ -1,0 +1,10 @@
+.env
+/catboost_info
+/.ipynb_checkpoints
+main.py
+Sales prediction-CatBoost.ipynb
+Sales prediction-NN.ipynb
+secure-connect-ineuron-sales-pred.zip
+tempCodeRunnerFile.py
+Test.csv
+Train.csv

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Developed by Hussain</title>
+    <link href= 'https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <!-- <link href= 'https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href= 'https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href= 'https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'> -->
+    <!-- <link rel='stylesheet' href="{{ url_for('static', filename='css/style.css')}}">  -->
+    <style>
+        .my-header {
+            border-radius: 50px;
+            background: #e0e0e0;
+            box-shadow:  20px 20px 60px #bebebe,
+                        20px -20px 60px #ffffff;
+            margin-bottom: -30px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+        }        
+
+        .login {
+            display: inline-block;
+            margin: auto;
+            top: 50%;
+            left: 50%;
+            margin-left: 400px;
+        }
+
+        .element {
+            position: relative;
+            float: right;
+            border-radius: 73px;
+            background: linear-gradient(145deg, #111010, #0e0e0e);
+            box-shadow:  33px 33px 65px #0b0b0b,
+                        -33px -33px 65px #151414;
+            width: 400px;
+            height: 400px;
+            margin-left: 200px;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            align-items: center;            
+        }
+
+        .login h1 {
+            font-size: 50px;
+        }
+
+        .btn {
+            font-size: 24px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            background-color: #262626;
+            color: white;
+            border: 1px solid black;
+        }
+
+        .login span {
+            font-size: 30px;
+        }
+
+        .login action{
+            style="background-color: #262626; 
+            width: 300px; 
+            height: 25px; 
+            font-size: 16px;
+            border: 1px solid black;
+        }
+
+        .form-style {
+            color: white;
+            background-color: #262626;
+            border: 1px solid black;
+            width: 300px;
+            height: 25px;
+            font-size: 16px;
+        }
+        
+
+    </style>
+
+</head>
+
+<body style="background: #000;">
+
+    <!--<div class="my-header">
+        <h2 style="color: black; font-size: 16px; text-align: center;">Developed by Hussain! <a href="https://github.com/lunaSnowflake">Github</a></h2>
+    </div> -->
+    
+    <div class="container">
+        
+        <div style="text-align: center;">            
+
+            <div class="login" style="display: inline-block;"> <!--login class-->
+                
+                <h1 style="color: white;">Sales Prediction</h1>
+
+                <form action = "{{url_for('predict')}}"method="post">
+                    <label for="Item_Identifier" style="color: white;">*Item Identifier</label>
+                    <input class="form-style" type='text' name='Item_Identifier' placeholder='FDW58' required="required" />
+                    <br><br>
+
+                    <label for="Item_Weight" style="color: white;">*Item Weight</label>
+                    <input class="form-style" type='text' name='Item_Weight' placeholder='14.3' required="required" />
+                    <br><br>
+
+                    <label for="Item_Fat_Content" style="color: white;">Item Fat Content</label>
+                    <select class="form-style" name='Item_Fat_Content'>
+                        <option value='Low Fat'>Low Fat</option>
+                        <option value='Regular'>Regular</option>
+                    </select>
+                    <br><br>
+
+                    <label for="Item_Visibility" style="color: white;">*Item Visibility</label>
+                    <input class="form-style" type='text' name='Item_Visibility' placeholder='0.007' required="required" />
+                    <br><br>
+
+                    <label for="Item_Type" style="color: white;">Item Type</label>
+                    <select class="form-style" name='Item_Type'>
+                        <option value='Dairy'>Dairy</option>
+                        <option value='Soft Drinks'>Soft Drinks</option>
+                        <option value='Meat'>Meat</option>
+                        <option value='Fruits and Vegetables'>Fruits and Vegetables</option>
+                        <option value='Household'>Household</option>
+                        <option value='Baking Goods'>Baking Goods</option>
+                        <option value='Snack Foods'>Snack Foods</option>
+                        <option value='Frozen Foods'>Frozen Foods</option>
+                        <option value='Breakfast'>Breakfast</option>
+                        <option value='Health and Hygiene'>Health and Hygiene</option>
+                        <option value='Hard Drinks'>Hard Drinks</option>
+                        <option value='Canned'>Canned</option>
+                        <option value='Breads'>Breads</option>
+                        <option value='Starchy Foods'>Starchy Foods</option>
+                        <option value='Seafood'>Seafood</option>
+                        <option value='Others'>Others</option>
+                    </select>
+                    <br><br>
+
+                    <label for="Item_MRP" style="color: white;">*Item MRP</label>
+                    <input class="form-style" type='text' name='Item_MRP' placeholder='107' required="required" />
+                    <br><br>
+
+                    <label for="Outlet_Identifier" style="color: white;">Outlet Identifier</label>
+                    <select class="form-style" name='Outlet_Identifier'>
+                        <option value='OUT010'>OUT010</option>
+                        <option value='OUT013'>OUT013</option>
+                        <option value='OUT017'>OUT017</option>
+                        <option value='OUT018'>OUT018</option>
+                        <option value='OUT019'>OUT019</option>
+                        <option value='OUT027'>OUT027</option>
+                        <option value='OUT035'>OUT035</option>
+                        <option value='OUT045'>OUT045</option>
+                        <option value='OUT046'>OUT046</option>
+                        <option value='OUT049'>OUT049</option>
+                    </select>
+                    <br><br>
+
+                    <label for="Outlet_Establishment_Year" style="color: white;">Outlet Establishment Year</label>
+                    <input class="form-style" type='text' name='Outlet_Establishment_Year' placeholder='1985' />
+                    <br><br>
+
+                    <label for="Outlet_Size" style="color: white;">Outlet Size</label>
+                    <select class="form-style" name='Outlet_Size'>
+                        <option value='High'>High</option>
+                        <option value='Medium'>Medium</option>
+                        <option value='Small'>Small</option>
+                    </select>
+                    <br><br>
+
+                    <label for="Outlet_Location_Type" style="color: white;">Outlet Location Type</label>
+                    <select class="form-style" name='Outlet_Location_Type'>
+                        <option value='Tier 1'>Tier 1</option>
+                        <option value='Tier 2'>Tier 2</option>
+                        <option value='Tier 3'>Tier 3</option>
+                    </select>
+                    <br><br>
+
+                    <label for="Outlet_Type" style="color: white;">Outlet Type</label>
+                    <select class="form-style" name='Outlet_Type'>
+                        <option value='Grocery Store'>Grocery Store</option>
+                        <option value='Supermarket Type1'>Supermarket Type1</option>
+                        <option value='Supermarket Type2'>Supermarket Type2</option>
+                        <option value='Supermarket Type3'>Supermarket Type3</option>
+                    </select>
+                    <br><br>
+
+                    <input type="submit" class="btn btn—primary btn—block btn—large" value="Submit" onclick="myFunction()" />
+                    <!--<button type="submit" class="btn btn—primary btn—block btn—large">Predict Sales</button>-->
+                </form>
+                
+                <!--<span class="display_text">{{ display_text }}</span> -->
+
+            </div>
+            
+        </div>
+
+        <div class="element">
+            <h2 style="color: white; font-size: 16px; text-align: center;">
+                Developed by Hussain! <a href="https://github.com/lunaSnowflake">Github</a> 
+                <br> <br> 
+                {{ display_text }} 
+            </h2>
+        </div>
+    
+    </div>
+
+    <script>
+        // This is Javascript code, used to make the form persistent even after the user has clicked submit button
+        function myFunction() {
+            var inputTags = document.getElementsByTagName("input");
+            for (var i = 0; i < inputTags.length; i++) {
+                if (inputTags[i].type === "text") {
+                    localStorage.setItem(inputTags[i].name, inputTags[i].value);
+                }
+            }
+        }
+
+        window.onload = function() {
+            var inputTags = document.getElementsByTagName("input");
+            for (var i = 0; i < inputTags.length; i++) {
+                if (inputTags[i].type === "text") {
+                    var value = localStorage.getItem(inputTags[i].name);
+                    if (value !== null) {
+                        inputTags[i].value = value;
+                    }
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
+
+<!--
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .container {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100vh;
+        }        
+
+        .login {
+            display: inline-block;
+            margin: auto;
+            top: 50%;
+            left: 50%;
+            margin-left: 400px;
+        }
+
+        .element {
+            position: relative;
+            float: right;
+            border-radius: 73px;
+            background: linear-gradient(145deg, #111010, #0e0e0e);
+            box-shadow:  33px 33px 65px #0b0b0b,
+                         -33px -33px 65px #151414;
+            width: 400px;
+            height: 400px;
+            margin-left: 200px;
+            z-index: 1;
+        }
+
+        .display_text {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+        }
+
+    </style>
+</head>
+<body style="background: #000;">
+    <div class="container">
+
+        <div style="text-align: center;">
+
+            <div class="login" style="display: inline-block;"> 
+
+                <form action = "{{url_for('predict')}}"method="post"> 
+                    <input type='text' name='Item_Identifier' placeholder=' *Item Identifier: FDW58' />
+                    <input type='text' name='Item_Weight' placeholder=' *Item Weight: 14.3' />
+                    <button type="submit" class="btn btn—primary btn—block btn—large">Predict Sales</button>
+                <span>{{ user_text }}</span>
+
+                <span class="display_text">{{ display_text }}</span>
+
+            </div>
+            
+        </div>
+
+        <div class="element"></div>
+    
+    </div>
+</body>
+</html> -->
