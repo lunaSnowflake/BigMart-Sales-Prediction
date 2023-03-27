@@ -1,2 +1,5 @@
 numpy==1.21.5
-flask==1.1.2
+flask
+catboost
+scikit-learn==1.0.2
+pickle4
